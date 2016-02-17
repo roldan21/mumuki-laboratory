@@ -35,6 +35,47 @@ describe Guide do
   end
 
   describe '#import_from_json!' do
+    context 'when an exercise is deleted' do
+      let(:guide) { create(:guide, exercises: [exercise_1, exercise_2, exercise_3, exercise_4]) }
+
+      let(:exercise_1) { build(:problem,
+                               language: language,
+                               name: 'Exercise 1',
+                               bibliotheca_id: 1,
+                               number: 1) }
+
+      let(:exercise_2) { build(:playground,
+                               language: language,
+                               name: 'Exercise 2',
+                               bibliotheca_id: 4,
+                               number: 2) }
+
+      let(:exercise_3) { build(:problem,
+                               language: language,
+                               name: 'Exercise 3',
+                               bibliotheca_id: 2,
+                               number: 3) }
+
+      let(:exercise_4) { create(:problem,
+                               language: language,
+                               name: 'Exercise 4',
+                               bibliotheca_id: 8,
+                               number: 4) }
+
+      before do
+        guide.import_from_json!(guide_json)
+      end
+
+      describe 'it is unlinked from the guide' do
+        it { expect(guide.exercises.count).to eq 3 }
+        it { expect(guide.exercises).not_to include exercise_4 }
+      end
+
+      describe 'it is not deleted from the database' do
+        it { expect(Exercise.find(exercise_4.id)).to eq exercise_4 }
+      end
+    end
+
     context 'when guide is empty' do
       let!(:haskell) { create(:haskell) }
       let(:guide) { create(:guide, exercises: []) }
