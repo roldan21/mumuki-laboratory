@@ -49,6 +49,8 @@ class Guide < ActiveRecord::Base
     self.language = Language.for_name(json['language'])
     self.save!
 
+    unlink_missing_exercises json['exercises']
+
     json['exercises'].each_with_index do |e, i|
       exercise = Exercise.find_by(guide_id: self.id, bibliotheca_id: e['id'])
 
@@ -62,4 +64,13 @@ class Guide < ActiveRecord::Base
     reload
   end
 
+  private
+
+  def unlink_missing_exercises(exercises_json)
+    exercises
+    .reject do |exercise|
+      exercises_json.any? { |json_exercise| exercise.bibliotheca_id == json_exercise['id'] }
+    end
+    .each { |e| e.guide_id = nil; e.save! }
+  end
 end
