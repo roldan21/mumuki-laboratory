@@ -7,26 +7,19 @@ gem 'pg', '~> 0.18.0'
 gem 'pg_search', '~> 1.0'
 
 gem 'uglifier', '~> 2.7'
-
 gem 'therubyracer', platforms: :ruby
-
 gem 'turbolinks', '~> 2.5'
-
-
 gem 'sass-rails'
 gem 'execjs'
 
+# Only for helpers
+gem 'font-awesome-rails'
+# Only for ujs
 gem 'jquery-rails'
 
 source 'https://rails-assets.org' do
-  gem 'rails-assets-dev-awesome'
-  gem 'rails-assets-awesome-bootstrap-checkbox'
+  gem 'rails-assets-mumuki-styles', '1.2.1'
 end
-
-gem 'bootstrap-sass', '~> 3.3.5'
-gem 'bootswatch-rails'
-
-gem 'font-awesome-rails'
 
 gem 'ace-rails-ap', '~> 4.0'
 

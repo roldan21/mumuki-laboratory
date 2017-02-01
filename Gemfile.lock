@@ -45,8 +45,6 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     amq-protocol (2.0.1)
     arel (5.0.1.20140414130214)
-    autoprefixer-rails (6.6.1)
-      execjs
     better_errors (2.1.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -56,12 +54,7 @@ GEM
     bootstrap-kaminari-views (0.0.5)
       kaminari (>= 0.13)
       rails (>= 3.1)
-    bootstrap-sass (3.3.7)
-      autoprefixer-rails (>= 5.2.1)
-      sass (>= 3.3.4)
     bootstrap_form (2.5.3)
-    bootswatch-rails (3.3.5)
-      railties (>= 3.1)
     builder (3.2.3)
     bunny (2.6.3)
       amq-protocol (>= 2.0.1)
@@ -220,7 +213,22 @@ GEM
       railties (= 4.1.16)
       sprockets-rails (~> 2.0)
     rails-assets-awesome-bootstrap-checkbox (0.3.7)
+    rails-assets-bootstrap-sass (3.3.7)
+      rails-assets-jquery (>= 1.9.1, < 4)
+    rails-assets-bootstrap-sass-official (3.2.0.2)
+      rails-assets-jquery (>= 1.9.0)
+    rails-assets-bootswatch-scss (3.2.0)
+      rails-assets-bootstrap-sass-official (~> 3.2.0)
     rails-assets-dev-awesome (0.0.3)
+    rails-assets-font-awesome (4.7.0)
+    rails-assets-jquery (3.1.1)
+    rails-assets-mumuki-styles (1.2.1)
+      rails-assets-awesome-bootstrap-checkbox (= 0.3.7)
+      rails-assets-bootstrap-sass (= 3.3.7)
+      rails-assets-bootswatch-scss (= 3.2.0)
+      rails-assets-dev-awesome (= 0.0.3)
+      rails-assets-font-awesome (= 4.7.0)
+      rails-assets-jquery (= 3.1.1)
     rails-i18n (4.0.9)
       i18n (~> 0.7)
       railties (~> 4.0)
@@ -313,9 +321,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-kaminari-views
-  bootstrap-sass (~> 3.3.5)
   bootstrap_form
-  bootswatch-rails
   bunny
   capybara (~> 2.3.0)
   codeclimate-test-reporter
@@ -343,8 +349,7 @@ DEPENDENCIES
   pry-stack_explorer
   puma
   rails (~> 4.1.14)
-  rails-assets-awesome-bootstrap-checkbox!
-  rails-assets-dev-awesome!
+  rails-assets-mumuki-styles (= 1.2.1)!
   rails-i18n (~> 4.0.0)
   rake (= 10.4.2)
   rspec-rails (~> 2.14)

@@ -10,15 +10,10 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require mumuki-styles
+//= require bootstrap-sass
 //= require jquery_ujs
-//= require bootstrap
 //= require ace-rails-ap
-//= require ace/mode-ruby
-//= require ace/mode-haskell
-//= require ace/mode-prolog
-//= require ace/mode-javascript
-//= require ace/mode-markdown
 //= require turbolinks
 //= require nprogress
 //= require nprogress-turbolinks
