@@ -2,6 +2,7 @@
 en:
   aborted: Oops, we couldn't evaluate your solution
   about: About
+  accept_terms: I accept the terms and conditions
   actions: Actions
   activity: Activity
   all: All
@@ -16,6 +17,7 @@ en:
   clear_console: Clear console
   comment: Comment
   comments: Comments
+  confirm: Confirmar
   console: Console
   contact_administrator: 'If you think this is not supposed to happen, please contact the admin: %{link}'
   content: Content

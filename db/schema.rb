@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170224040846) do
+ActiveRecord::Schema.define(version: 20170224061531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -194,7 +194,7 @@ ActiveRecord::Schema.define(version: 20170224040846) do
     t.string   "logo_url"
     t.string   "login_methods",            default: ["user_pass"], null: false, array: true
     t.integer  "book_ids",                 default: [],                         array: true
-    t.string   "terms_of_service"
+    t.text     "terms_of_service"
     t.string   "locale"
     t.string   "theme_stylesheet_url"
     t.string   "extension_javascript_url"

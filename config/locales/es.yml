@@ -2,6 +2,7 @@
 es:
   aborted: Ups, no pudimos evaluar tu solución
   about: Detalles
+  accept_terms: Acepto los términos y condiciones
   actions: Acciones
   activity: Actividad
   all: Todos
@@ -18,6 +19,7 @@ es:
   clear_console: Reiniciar consola
   comment: Comentario
   comments: Comentarios
+  confirm: Confirmar
   console: Consola
   contact_administrator: 'Si pensás que es un error, comunicate con el administrador: %{link}'
   content: Contenido
