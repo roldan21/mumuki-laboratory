@@ -6,7 +6,7 @@ class ApplicationRoot
     @url = url
   end
 
-  def url_for(subdomain, path)
+  def url_for(subdomain, path = '/')
     URI.join(subdominated(subdomain), path).to_s
   end
 
