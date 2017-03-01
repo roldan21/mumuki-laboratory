@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   Mumukit::Login.configure_login_routes! self
 
-  get '/join/:invitation' => 'invitations#show'
-  post '/join/:invitation' => 'invitations#join'
+  get '/join/:code' => 'invitations#show', as: :invitation
+  post '/join/:code' => 'invitations#join'
 
   OrganizationMapper.configure_application_routes(self) do
     root to: 'book#show'
