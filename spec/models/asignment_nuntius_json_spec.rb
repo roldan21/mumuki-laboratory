@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Event do
+describe Assignment do
 
   describe '#to_json' do
-    describe Event::Submission do
+    describe Assignment do
       let(:user) { create(:user, id: 2, email: 'foo@bar.com', name: 'foo', provider: 'auth0', social_id: 'github|gh1234') }
       describe 'lesson type' do
         let(:lesson) { chapter.lessons.fourth }
@@ -25,8 +25,7 @@ describe Event do
                                   submitter: user,
                                   submission_id: 'abcd1234',
                                   exercise: exercise) }
-        let(:event) { Event::Submission.new(assignment) }
-        let(:json) { event.event_json.deep_symbolize_keys }
+        let(:json) { assignment.nuntius_json.deep_symbolize_keys }
 
         it { expect(lesson.number).to eq 4 }
         it do
@@ -83,8 +82,7 @@ describe Event do
                                   submitter: user,
                                   submission_id: 'abcd1234',
                                   exercise: exercise) }
-        let(:event) { Event::Submission.new(assignment) }
-        let(:json) { event.event_json.deep_symbolize_keys }
+        let(:json) { assignment.nuntius_json.deep_symbolize_keys }
 
         it do
           expect(json).to eq(status: Status::Passed,
@@ -135,8 +133,7 @@ describe Event do
                                   submitter: user,
                                   submission_id: 'abcd1234',
                                   exercise: exercise) }
-        let(:event) { Event::Submission.new(assignment) }
-        let(:json) { event.event_json.deep_symbolize_keys }
+        let(:json) { assignment.nuntius_json.deep_symbolize_keys }
 
         it do
           expect(json).to eq(status: Status::Passed,

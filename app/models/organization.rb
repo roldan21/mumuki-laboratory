@@ -83,10 +83,10 @@ class Organization < ActiveRecord::Base
   end
 
   def notify!
-    Mumukit::Nuntius.notify_event! 'OrganizationChanged', as_complete_json
+    Mumukit::Nuntius.notify_event! 'OrganizationChanged', nuntius_json
   end
 
-  def as_complete_json
+  def nuntius_json
     as_json(except: [:login_methods, :book_id, :book_ids]).merge(locale: locale, lock_json: login_settings.lock_json, book_ids: book_slugs, book_id: book.slug)
   end
 
