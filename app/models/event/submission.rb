@@ -4,7 +4,7 @@ class Event::Submission
   end
 
   def notify!
-    Mumukit::Nuntius.notify! 'submissions', event_json unless Organization.current.silent?
+    Mumukit::Nuntius.notify! 'submissions', event_json
   end
 
   def event_json

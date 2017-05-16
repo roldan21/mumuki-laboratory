@@ -29,10 +29,6 @@ class Organization < ActiveRecord::Base
     name == 'central'
   end
 
-  def test?
-    name == 'test'
-  end
-
   def locale_json
     Locale::LOCALES[locale].to_json
   end
@@ -43,10 +39,6 @@ class Organization < ActiveRecord::Base
 
   def notify_assignments_by!(submitter)
     notify_assignments! assignments.where(submitter_id: submitter.id)
-  end
-
-  def silent?
-    test?
   end
 
   def private?
