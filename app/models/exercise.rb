@@ -114,13 +114,6 @@ class Exercise < ActiveRecord::Base
     Exercise.find(id)
   end
 
-  def self.notify_for_classroom_update!
-    all
-      .as_json(only: [:id, :bibliotheca_id], include: {guide: {only: :slug}})
-      .group_by { |it| it['guide']['slug'] }
-      .each { |k, v| Mumukit::Nuntius.notify_event! 'ExerciseChanged', {guide: {slug: k}, exercises: v.as_json(except: 'guide')} }
-  end
-
   private
 
   def defaults
