@@ -26,7 +26,7 @@ describe Event do
                                   submission_id: 'abcd1234',
                                   exercise: exercise) }
         let(:event) { Event::Submission.new(assignment) }
-        let(:json) { event.as_json.deep_symbolize_keys }
+        let(:json) { event.event_json.deep_symbolize_keys }
 
         it { expect(lesson.number).to eq 4 }
         it do
@@ -84,7 +84,7 @@ describe Event do
                                   submission_id: 'abcd1234',
                                   exercise: exercise) }
         let(:event) { Event::Submission.new(assignment) }
-        let(:json) { event.as_json.deep_symbolize_keys }
+        let(:json) { event.event_json.deep_symbolize_keys }
 
         it do
           expect(json).to eq(status: Status::Passed,
@@ -136,7 +136,7 @@ describe Event do
                                   submission_id: 'abcd1234',
                                   exercise: exercise) }
         let(:event) { Event::Submission.new(assignment) }
-        let(:json) { event.as_json.deep_symbolize_keys }
+        let(:json) { event.event_json.deep_symbolize_keys }
 
         it do
           expect(json).to eq(status: Status::Passed,

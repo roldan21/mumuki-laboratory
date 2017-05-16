@@ -1,10 +1,10 @@
-class Event::Submission < Event::Base
+class Event::Submission
   def initialize(assignment)
     @assignment = assignment
   end
 
-  def queue_name
-    'submissions'
+  def notify!
+    Mumukit::Nuntius.notify! 'submissions', event_json unless Organization.current.silent?
   end
 
   def event_json
@@ -32,6 +32,7 @@ class Event::Submission < Event::Base
           'name' => navigable_parent.name,
           'position' => navigable_parent.try(:number),
           'chapter' => @assignment.guide.chapter.as_json(only: [:id], methods: [:name])
-        }})
+        }},
+        'organization' => Organization.current.name)
   end
 end
